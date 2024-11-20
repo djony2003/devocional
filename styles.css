@@ -5,6 +5,19 @@ body {
     background: #f4f4f9;
     margin: 0;
     padding: 0;
+    max-width: 800px; /* Limita o tamanho máximo */
+    margin: 0 auto; /* Centraliza o conteúdo */
+    overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+form {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    padding: 0px;
+
+
 }
 
 header {
@@ -15,13 +28,14 @@ header {
 }
 
 main {
-    max-width: 800px;
-    margin: 20px auto;
+    max-width: 800px; /* Limita o tamanho máximo */
+    margin: 20px auto; /* Centraliza horizontalmente */
     padding: 20px;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 
 label {
     font-weight: bold;
@@ -31,23 +45,22 @@ label {
 
 textarea,
 input {
-    width:auto;
-    margin-top: 5px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 10px;
+    max-width: 100%; /* Ocupa toda a largura disponível */
+   
+    margin-top: 10px;
+    
     font-size: 14px;
     border: 1px solid #ccc;
-    border-radius: 0px;
-    BOX-SHADOW: 0 0 10px #ccc;
-    size-adjust: auto;
+    border-radius: 4px;
 }
 
 button {
+    width: auto;
     background: #6200ea;
     color: #fff;
-    border: none;
+    border: 20px;
     padding: 10px 20px;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
     margin-top: 10px;
 }
@@ -55,12 +68,12 @@ button {
 #microfoneBtn {
     background-color: #6200ea;
     background-image: url("img/Mic_PT_BC.png");
-    background-size: contain;
+    background-size:contain;
     border: none;
     color: white;
     padding: 20px;
-    border-radius: 10%;
-    font-size: 16px;
+    border-radius: 50%;
+    font-size: 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -84,6 +97,11 @@ button:hover {
     padding: 10px;
     /*border: 1px solid #ccc;*/
    
+}
+
+.reflexoes a {
+    font-size: 14px; /* Reduz o tamanho da fonte para dispositivos menores */
+    word-wrap: break-word; /* Evita estouro de texto */
 }
 
 a {
@@ -114,13 +132,32 @@ a:hover {
     }
 }
 
+@media (max-width: 768px) {
+    main {
+        padding: 10px;
+    }
+
+    #botoes-esquerda {
+        flex-direction: column; /* Alinhar botões verticalmente */
+        gap: 10px;
+    }
+
+    #microfoneBtn {
+        margin: 10px auto; /* Centraliza o botão do microfone */
+    }
+}
+
+
 .captando {
     /* Coloque o estilo que usa a animação aqui */
     animation: pulse 1s infinite;
 }
 
 #mic {
-    display: flex;
+        
+    padding: 10px;
+    max-width: 100%;
+    display:flex;
     /* Ativa o Flexbox */
 
     /* Distribui o espaço entre os itens */

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <link rel="stylesheet" href="styles.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devocional Diário</title>
+</head>
+
+<body>
+    <header>
+        <h1>Devocional Diário</h1>
+    </header>
+
+    <main>
+        <form id="devocionalForm">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" placeholder="Digite seu nome" required>
+
+            <label for="data">Data:</label>
+            <input type="date" id="data" required>
+
+            <label for="referencia">Texto Bíblico (Livro, Capítulo e Versículo):</label>
+            <input type="text" id="referencia" placeholder="Exemplo: João 3:16" required>
+
+            <button type="button" onclick="adicionarTexto()">Adicionar Texto</button>
+
+            <a href="https://www.bibliaonline.com.br/" target="_blank">
+                <button type="button">Bíblia Online</button>
+            </a>
+        </form>
+
+        <div id="listaReflexoes" class="reflexoes"></div>
+
+        <label for="textosSelecionados">Textos Selecionados:</label>
+        <textarea id="textosSelecionados" style="width: 780px;height: 150px;"></textarea>
+
+        <label for="reflexao">Reflexão:</label>
+        <textarea id="reflexao" style="width: 780px;height: 200px;" placeholder="Escreva sua reflexão..."
+            required></textarea>
+
+
+        <div id="mic" class="mic">
+            <div id="botoes-esquerda">
+                <button type="button" onclick="salvarDevocional()">Salvar Devocional</button>
+                <button type="button" onclick="carregarArquivo()">Carregar Devocional</button>
+            </div>
+            <button id="microfoneBtn">
+                <i class="fas fa-microphone"></i>
+            </button>
+        </div>
+
+        <input type="file" id="carregarDevocional" style="display: none;" onchange="lerArquivo(event)">
+
+    </main>
+ <script src="script.js"></script>
+</Body>

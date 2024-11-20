@@ -1,0 +1,131 @@
+
+/* Estilos mantidos */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #6200ea;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+textarea,
+input {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background: #6200ea;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#microfoneBtn {
+    background-color: #6200ea;
+    background-image: url("Mic_PT_BC.png");
+    background-size: contain;
+    border: none;
+    color: white;
+    padding: 20px;
+    border-radius: 10%;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    /* Empurra o botão para a direita */
+}
+
+#microfoneBtn:hover {
+    opacity: 0.8;
+    /* Efeito de hover */
+}
+
+
+button:hover {
+    background: #3700b3;
+}
+
+.reflexoes {
+    margin-top: 20px;
+    padding: 10px;
+    /*border: 1px solid #ccc;*/
+    border-radius: 4px;
+}
+
+a {
+    color: #6200ea;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@keyframes pulse {
+
+    /* Coloque a animação aqui */
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+.captando {
+    /* Coloque o estilo que usa a animação aqui */
+    animation: pulse 1s infinite;
+}
+
+#mic {
+    display: flex;
+    /* Ativa o Flexbox */
+
+    /* Distribui o espaço entre os itens */
+}
+
+#botoes-esquerda {
+    display: flex;
+    /* Ativa o Flexbox para os botões da esquerda */
+    gap: 10px;
+    /* Define o espaçamento entre os botões da esquerda */
+}

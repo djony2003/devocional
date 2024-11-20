@@ -78,22 +78,24 @@ const reflexoesSalvas = [];
             leitor.readAsText(arquivo);
           }
 
-function carregarDevocional(conteudoTXT) {
-  // Dividir o texto em linhas
-  const linhas = conteudoTXT.split('\n'); 
-  
-  // Extrair os valores de cada linha
-  const nome = linhas[0].split(': ')[1];
-  const data = linhas[1].split(': ')[1];
-  const textos = linhas[3].split(': ')[1];
-  const reflexao = linhas[4].split(': ')[1]; 
-
-  // Preencher os campos do formulário
-  document.getElementById("nome").value = nome;
-  document.getElementById("data").value = data;
-  document.getElementById("textosSelecionados").value = textos;
-  document.getElementById("reflexao").value = reflexao;
-}
+          function carregarDevocional(conteudoTXT) {
+            // Dividir o texto em linhas
+            const linhas = conteudoTXT.split('\n');
+            
+            // Extrair os valores de cada linha
+            const nome = linhas[0].split(': ')[1];
+            const data = linhas[1].split(': ')[1];
+            const textos = linhas[3].split(': ')[1];
+            
+            // A reflexão pode conter várias linhas; juntá-las
+            const reflexao = linhas.slice(4).join('\n').replace('Reflexão: ', '').trim();
+            
+            // Preencher os campos do formulário
+            document.getElementById("nome").value = nome;
+            document.getElementById("data").value = data;
+            document.getElementById("textosSelecionados").value = textos;
+            document.getElementById("reflexao").value = reflexao;
+        }
 
         function atualizarListaReflexoes() {
             const listaReflexoes = document.getElementById("listaReflexoes");

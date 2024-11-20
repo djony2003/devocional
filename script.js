@@ -117,46 +117,37 @@ const reflexoesSalvas = [];
         const microfoneBtn = document.getElementById('microfoneBtn');
         const reflexaoArea = document.getElementById('reflexao');
 
-        if ('webkitSpeechRecognition' in window) {
-            const recognition = new webkitSpeechRecognition();
 
-            // Configurar o idioma para português brasileiro
-            recognition.lang = 'pt-BR';
+if ('webkitSpeechRecognition' in window) {
+    const recognition = new webkitSpeechRecognition();
+    recognition.lang = 'pt-BR';
+    recognition.continuous = true;
 
-            recognition.onspeechend = function () {
-                recognition.start(); // Reinicia o reconhecimento
-            };
+    let gravando = false;
 
-            recognition.continuous = true;
-
-            let gravando = false; // Variável de controle
-
-
-            microfoneBtn.onclick = function () {
-                if (!gravando) {
-                    recognition.start();
-                    gravando = true;
-                    // Corrigido: Usando aspas duplas dentro da url()
-                    microfoneBtn.style.backgroundImage = "url('img/Mic2.png')";
-                } else {
-                    recognition.stop();
-                    gravando = false;
-                    // Corrigido: Usando aspas duplas dentro da url()
-                    microfoneBtn.style.backgroundImage = "url('img/Mic_PT_BC.png')";
-                }
-            };
-
-            recognition.onresult = function (event) {
-                for (let i = event.resultIndex; i < event.results.length; i++) { // Percorre todos os resultados
-                    if (event.results[i].isFinal) {
-                        const resultado = event.results[i][0].transcript; // Declara a variável dentro do loop
-                        reflexaoArea.value += resultado + " "; // Adiciona o resultado à área de texto
-                    }
-                }
-            };
+    microfoneBtn.onclick = function () {
+        if (!gravando) {
+            recognition.start();
+            gravando = true;
+            microfoneBtn.style.backgroundImage = "url('img/Mic2.png')";
         } else {
-            alert('Seu navegador não suporta reconhecimento de fala.');
+            recognition.stop();
+            gravando = false;
+            microfoneBtn.style.backgroundImage = "url('img/Mic_PT_BC.png')";
         }
+    };
+
+    recognition.onresult = function (event) {
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+            if (event.results[i].isFinal) {
+                const resultado = event.results[i][0].transcript;
+                reflexaoArea.value += resultado + " ";
+            }
+        }
+    };
+} else {
+    alert('Seu navegador não suporta reconhecimento de fala.');
+}
 
         recognition.onstart = function () {
             microfoneBtn.classList.add('gravando');
